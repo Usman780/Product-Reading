@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    .progress {
+        position: relative;
+        width: 95%;
+        border: 1px solid #ddd;
+        padding: 1px;
+    }
+
+    .progress-bar {
+        width: 0px;
+        height: 20px;
+        background-color: #57be65;
+    }
+</style>
+
+<div class="row text-center m-10">
+    <div class="col-md-12">
+        <h1 class="text-bold text-highlight"><u>Admin Dashboard</u></h1>
+    </div>
+
+    <div class="col-md-4 col-md-offset-4">
+        <div class="text-center text-white" style="padding: 25px; background: #196f9c">
+            <h3 class="text-semibold">Total Products</h3>
+            <h2 class="text-bold">@ViewBag.ProductCount</h2>
+        </div>
+    </div>
+    @*<div class="col-md-3 col-sm-6">
+            <div class="bg-danger text-center text-white" style="padding: 25px; background: #37acdb ">
+                <h3 class="text-semibold">Total Users</h3>
+                <h2 class="text-bold">ViewBag.UserCount</h2>
+            </div>
+        </div>*@
+</div>
+
+
+
+<div class="row startClass m-10" id="progressBarDiv" style="display:none;">
+    <hr />
+    <div class="col-lg-offset-4 col-lg-4" style="background-color:#f2eeeb; border:1px solid black; border-radius:5px; box-shadow:7px 12px 17px -3px rgba(0, 0, 0, 0.72);">
+
+        <a href="@Url.Action("Index","Admin")">
+            <i class="mt-10 glyphicon glyphicon-refresh pull-right text-info-300" data-popup="tooltip" title="Refresh product count"></i>
+        </a>
+        <center>
+            <u><h3 id="progressHeading">Progress</h3></u>
+        </center>
+
+        <div class="progress">
+            <div id="progressBar" class="progress-bar " role="progressbar" style="width:0%;" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span id="progressText">
+            0%
+            <br />
+            <br />
+            Record 0/0
+            <br />
+
+        </span>
+    </div>
+</div>
+<br />
+
+<script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script type="text/javascript">
+    var flag = 0;
+
+    var progress = $.connection.progressHub; //get connection with class named "ProgressHub" in DataHub folder (ProgressHub.cs)
+    $.connection.hub.start().done();
+
+    progress.client.broadcastProgressIndex = function (currentRow, totalRows, condition) {
+        if (condition == 1) {
+            alert("Record updated successfully");
+            location.reload();
+        }
+        else {
+
+            if ($('#progressBarDiv').hasClass('startClass')) {
+                $('#refreshBtn').hide();
+                $('#progressBarDiv').removeClass('startClass');
+                $('#progressBarDiv').show();
+            }
+
+            var percentage = parseInt(currentRow) / parseInt(totalRows);
+            percentage = parseInt(percentage * 100);
+
+            if (percentage != flag) {
+                var barBgColor = 'red';
+                if (percentage >= 33 && percentage <= 49) {
+                    barBgColor = 'orange';
+                }
+                else if (percentage >= 50 && percentage <= 79) {
+                    barBgColor = 'dodgerblue';
+                }
+                else if (percentage >= 80) {
+                    barBgColor = 'green';
+                }
+
+                $('#progressBar').css({ 'width': parseInt(percentage) + '%', 'background-color': barBgColor });
+
+                flag = percentage;
+            }
+
+            $('#progressText').empty().append(parseInt(percentage) + '%' +
+                '<br />' +
+                '<br />' +
+                'Record ' + currentRow + '/' + totalRows +
+                '<br />');
+        }
+
+
+
+
+    };
+
+    progress.client.broadcastInventoryProgress = function (currentRow, totalRows, condition) {
+        $('#progressHeading').text("Updating Inventory");
+
+        if ($('#progressBarDiv').hasClass('startClass')) {
+            $('#refreshBtn').hide();
+            $('#progressBarDiv').removeClass('startClass');
+            $('#progressBarDiv').show();
+        }
+
+        var percentage = parseInt(currentRow) / parseInt(totalRows);
+        percentage = parseInt(percentage * 100);
+
+        if (percentage != flag) {
+            var barBgColor = 'red';
+            if (percentage >= 33 && percentage <= 49) {
+                barBgColor = 'orange';
+            }
+            else if (percentage >= 50 && percentage <= 79) {
+                barBgColor = 'dodgerblue';
+            }
+            else if (percentage >= 80) {
+                barBgColor = 'green';
+            }
+
+            $('#progressBar').css({ 'width': parseInt(percentage) + '%', 'background-color': barBgColor });
+
+            flag = percentage;
+        }
+
+        $('#progressText').empty().append(parseInt(percentage) + '%' +
+            '<br />' +
+            '<br />' +
+            'Record ' + currentRow + '/' + totalRows +
+            '<br />');
+
+    };
+</script>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CommonTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RefreshTime" Type="datetime" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsNew" Type="int" />
+    <Property Name="ProductImagePath" Type="nvarchar(max)" />
+    <Property Name="Product_SKU" Type="nvarchar" MaxLength="355" />
+    <Property Name="Product_Group" Type="nvarchar" MaxLength="100" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="355" />
+    <Property Name="Product_Type" Type="nvarchar" MaxLength="355" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Short_Description" Type="nvarchar(max)" />
+    <Property Name="Long_Description" Type="nvarchar(max)" />
+    <Property Name="Level_1_Category" Type="nvarchar(max)" />
+    <Property Name="Level_2_Category" Type="nvarchar(max)" />
+    <Property Name="UPC_Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="MAP_Price" Type="nvarchar" MaxLength="100" />
+    <Property Name="Kroll_Sell" Type="nvarchar" MaxLength="100" />
+    <Property Name="MSRP" Type="nvarchar" MaxLength="100" />
+    <Property Name="Product_Weight" Type="nvarchar" MaxLength="100" />
+    <Property Name="Small_Image_File" Type="nvarchar(max)" />
+    <Property Name="Small_Image_Text" Type="nvarchar(max)" />
+    <Property Name="Manu_Part_Number" Type="nvarchar" MaxLength="100" />
+    <Property Name="Hazardous" Type="nvarchar" MaxLength="50" />
+    <Property Name="Restricted" Type="nvarchar" MaxLength="50" />
+    <Property Name="Complete_SKU" Type="nvarchar" MaxLength="355" />
+    <Property Name="SKU_Variation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parent_SKU" Type="nvarchar" MaxLength="355" />
+    <Property Name="Choice1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice6" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option6" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice7" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option7" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice8" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option8" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice9" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option9" Type="nvarchar" MaxLength="255" />
+    <Property Name="Choice10" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option10" Type="nvarchar" MaxLength="255" />
+    <Property Name="QTY_Available" Type="nvarchar" MaxLength="100" />
+    <Property Name="Country_of_Origin_Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="355" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" MaxLength="355" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Role" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedAt" Type="datetime" />
+  </EntityType>
+  <Function Name="sp_AddUpdateProductRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StatementType" Type="int" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IsNew" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductImagePath" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Product_SKU" Type="nvarchar" Mode="In" />
+    <Parameter Name="Product_Group" Type="nvarchar" Mode="In" />
+    <Parameter Name="Manufacturer" Type="nvarchar" Mode="In" />
+    <Parameter Name="Product_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Product_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Short_Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Long_Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Level_1_Category" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Level_2_Category" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UPC_Code" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAP_Price" Type="nvarchar" Mode="In" />
+    <Parameter Name="Kroll_Sell" Type="nvarchar" Mode="In" />
+    <Parameter Name="MSRP" Type="nvarchar" Mode="In" />
+    <Parameter Name="Product_Weight" Type="nvarchar" Mode="In" />
+    <Parameter Name="Small_Image_File" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Small_Image_Text" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Manu_Part_Number" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hazardous" Type="nvarchar" Mode="In" />
+    <Parameter Name="Restricted" Type="nvarchar" Mode="In" />
+    <Parameter Name="Complete_SKU" Type="nvarchar" Mode="In" />
+    <Parameter Name="SKU_Variation" Type="nvarchar" Mode="In" />
+    <Parameter Name="Parent_SKU" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice3" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option3" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice4" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option4" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice5" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option5" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice6" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option6" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice7" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option7" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice8" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option8" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice9" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option9" Type="nvarchar" Mode="In" />
+    <Parameter Name="Choice10" Type="nvarchar" Mode="In" />
+    <Parameter Name="Option10" Type="nvarchar" Mode="In" />
+    <Parameter Name="Country_of_Origin_Code" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="CreatedAt" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_GetActiveProductById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetActiveProductBySku" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Product_SKU" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetActiveProductList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetNewProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetProductBySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Product_SKU" Type="nvarchar" Mode="In" />
+    <Parameter Name="MAP_Price" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="CommonTable" EntityType="Self.CommonTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductRecord" EntityType="Self.ProductRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

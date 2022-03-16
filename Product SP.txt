@@ -1,0 +1,264 @@
+CREATE PROCEDURE [dbo].[sp_GetProductBySearch]
+@Product_SKU NVARCHAR (355)=null,
+@MAP_Price NVARCHAR (100)=null
+AS
+SELECT * from [dbo].[ProductRecord] where LOWER(Product_SKU) = @Product_SKU And Lower(MAP_Price) = @MAP_Price And IsActive = 1
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[sp_GetNewProducts]
+AS
+SELECT * from [dbo].[ProductRecord] where IsNew = 1 And IsActive = 1
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[sp_GetActiveProductList]
+AS
+SELECT * from [dbo].[ProductRecord] where IsActive = 1
+
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[sp_GetActiveProductBySku]
+@Product_SKU NVARCHAR (355)=null
+AS
+SELECT * from [dbo].[ProductRecord] where LOWER(Product_SKU) = @Product_SKU And IsActive = 1
+
+
+
+
+
+CREATE PROCEDURE [dbo].[sp_GetActiveProductById]
+@Id INT
+AS
+SELECT * from[dbo].[ProductRecord] where Id = @Id And IsActive = 1
+
+
+
+
+
+
+
+
+
+
+CREATE PROCEDURE sp_AddUpdateProductRecord (
+@StatementType INT=1,
+@Id INT=0,
+@IsNew NVARCHAR (255)=null,
+@ProductImagePath NVARCHAR (MAX)=null,
+@Product_SKU NVARCHAR (355)=null,
+@Product_Group NVARCHAR (100)=null,
+@Manufacturer NVARCHAR (355)=null,
+@Product_Type NVARCHAR (355)=null,
+@Product_Name NVARCHAR (500)=null,
+@Short_Description NVARCHAR (MAX)=null,
+@Long_Description NVARCHAR (MAX)=null,
+@Level_1_Category NVARCHAR (MAX)=null,
+@Level_2_Category NVARCHAR (MAX)=null,
+@UPC_Code NVARCHAR (100)=null,
+@MAP_Price NVARCHAR (100)=null,
+@Kroll_Sell NVARCHAR (100)=null,
+@MSRP NVARCHAR (100)=null,
+@Product_Weight NVARCHAR (100)=null,
+@Small_Image_File NVARCHAR (MAX)=null,
+@Small_Image_Text NVARCHAR (MAX)=null,
+@Manu_Part_Number NVARCHAR (100)=null,
+@Hazardous NVARCHAR (50)=null,
+@Restricted NVARCHAR (50)=null,
+@Complete_SKU NVARCHAR (355)=null,
+@SKU_Variation NVARCHAR (50)=null,
+@Parent_SKU NVARCHAR (355)=null,
+@Choice1 NVARCHAR (255)=null,
+@Option1 NVARCHAR (255)=null,
+@Choice2 NVARCHAR (255)=null,
+@Option2 NVARCHAR (255)=null,
+@Choice3 NVARCHAR (255)=null,
+@Option3 NVARCHAR (255)=null,
+@Choice4 NVARCHAR (255)=null,
+@Option4 NVARCHAR (255)=null,
+@Choice5 NVARCHAR (255)=null,
+@Option5 NVARCHAR (255)=null,
+@Choice6 NVARCHAR (255)=null,
+@Option6 NVARCHAR (255)=null,
+@Choice7 NVARCHAR (255)=null,
+@Option7 NVARCHAR (255)=null,
+@Choice8 NVARCHAR (255)=null,
+@Option8 NVARCHAR (255)=null,
+@Choice9 NVARCHAR (255)=null,
+@Option9 NVARCHAR (255)=null,
+@Choice10 NVARCHAR (255)=null,
+@Option10 NVARCHAR (100)=null,
+@Country_of_Origin_Code NVARCHAR (100)=null,
+@IsActive INT=0,
+@CreatedAt DATETIME=null
+)
+AS
+BEGIN
+IF @StatementType = 1
+BEGIN
+INSERT INTO [dbo].[ProductRecord]
+(
+IsNew,
+ProductImagePath,
+Product_SKU,
+Product_Group,
+Manufacturer,
+Product_Type,
+Product_Name,
+Short_Description,
+Long_Description,
+Level_1_Category,
+Level_2_Category,
+UPC_Code,
+MAP_Price,
+Kroll_Sell,
+MSRP,
+Product_Weight,
+Small_Image_File,
+Small_Image_Text,
+Manu_Part_Number,
+Hazardous,
+Restricted,
+Complete_SKU,
+SKU_Variation,
+Parent_SKU,
+Choice1,
+Option1,
+Choice2,
+Option2,
+Choice3,
+Option3,
+Choice4,
+Option4,
+Choice5,
+Option5,
+Choice6,
+Option6,
+Choice7,
+Option7,
+Choice8,
+Option8,
+Choice9,
+Option9,
+Choice10,
+Option10,
+Country_of_Origin_Code,
+IsActive,
+CreatedAt
+)
+VALUES (
+@IsNew,
+@ProductImagePath,
+@Product_SKU,
+@Product_Group,
+@Manufacturer,
+@Product_Type,
+@Product_Name,
+@Short_Description,
+@Long_Description,
+@Level_1_Category,
+@Level_2_Category,
+@UPC_Code,
+@MAP_Price,
+@Kroll_Sell,
+@MSRP,
+@Product_Weight,
+@Small_Image_File,
+@Small_Image_Text,
+@Manu_Part_Number,
+@Hazardous,
+@Restricted,
+@Complete_SKU,
+@SKU_Variation,
+@Parent_SKU,
+@Choice1,
+@Option1,
+@Choice2,
+@Option2,
+@Choice3,
+@Option3,
+@Choice4,
+@Option4,
+@Choice5,
+@Option5,
+@Choice6,
+@Option6,
+@Choice7,
+@Option7,
+@Choice8,
+@Option8,
+@Choice9,
+@Option9,
+@Choice10,
+@Option10,
+@Country_of_Origin_Code,
+@IsActive,
+@CreatedAt
+)
+Select * from [dbo].[ProductRecord] where Id = SCOPE_IDENTITY()
+END
+IF @StatementType = 2
+BEGIN
+UPDATE [dbo].[ProductRecord]
+SET
+IsNew = @IsNew,
+ProductImagePath = @ProductImagePath,
+Product_SKU = @Product_SKU,
+Product_Group = @Product_Group,
+Manufacturer = @Manufacturer,
+Product_Type = @Product_Type,
+Product_Name = @Product_Name,
+Short_Description = @Short_Description,
+Long_Description = @Long_Description,
+Level_1_Category = @Level_1_Category,
+Level_2_Category = @Level_2_Category,
+UPC_Code = @UPC_Code,
+MAP_Price = @MAP_Price,
+Kroll_Sell = @Kroll_Sell,
+MSRP = @MSRP,
+Product_Weight = @Product_Weight,
+Small_Image_File = @Small_Image_File,
+Small_Image_Text = @Small_Image_Text,
+Manu_Part_Number = @Manu_Part_Number,
+Hazardous = @Hazardous,
+Restricted = @Restricted,
+Complete_SKU = @Complete_SKU,
+SKU_Variation = @SKU_Variation,
+Parent_SKU = @Parent_SKU,
+Choice1 = @Choice1,
+Option1 = @Option1,
+Choice2 = @Choice2,
+Option2 = @Option2,
+Choice3 = @Choice3,
+Option3 = @Option3,
+Choice4 = @Choice4,
+Option4 = @Option4,
+Choice5 = @Choice5,
+Option5 = @Option5,
+Choice6 = @Choice6,
+Option6 = @Option6,
+Choice7 = @Choice7,
+Option7 = @Option7,
+Choice8 = @Choice8,
+Option8 = @Option8,
+Choice9 = @Choice9,
+Option9 = @Option9,
+Choice10 = @Choice10,
+Option10 = @Option10,
+Country_of_Origin_Code = @Country_of_Origin_Code,
+IsActive = @IsActive,
+CreatedAt = @CreatedAt
+WHERE Id = @Id
+Select * from [dbo].[ProductRecord] where Id = @Id
+END
+END

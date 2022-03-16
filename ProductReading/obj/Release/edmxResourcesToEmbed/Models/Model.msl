@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="CommonTables">
+      <EntityTypeMapping TypeName="DatabaseModel.CommonTable">
+        <MappingFragment StoreEntitySet="CommonTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RefreshTime" ColumnName="RefreshTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductRecords">
+      <EntityTypeMapping TypeName="DatabaseModel.ProductRecord">
+        <MappingFragment StoreEntitySet="ProductRecord">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="ProductImagePath" ColumnName="ProductImagePath" />
+          <ScalarProperty Name="Product_SKU" ColumnName="Product_SKU" />
+          <ScalarProperty Name="Product_Group" ColumnName="Product_Group" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Short_Description" ColumnName="Short_Description" />
+          <ScalarProperty Name="Long_Description" ColumnName="Long_Description" />
+          <ScalarProperty Name="Level_1_Category" ColumnName="Level_1_Category" />
+          <ScalarProperty Name="Level_2_Category" ColumnName="Level_2_Category" />
+          <ScalarProperty Name="UPC_Code" ColumnName="UPC_Code" />
+          <ScalarProperty Name="MAP_Price" ColumnName="MAP_Price" />
+          <ScalarProperty Name="Kroll_Sell" ColumnName="Kroll_Sell" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="Product_Weight" ColumnName="Product_Weight" />
+          <ScalarProperty Name="Small_Image_File" ColumnName="Small_Image_File" />
+          <ScalarProperty Name="Small_Image_Text" ColumnName="Small_Image_Text" />
+          <ScalarProperty Name="Manu_Part_Number" ColumnName="Manu_Part_Number" />
+          <ScalarProperty Name="Hazardous" ColumnName="Hazardous" />
+          <ScalarProperty Name="Restricted" ColumnName="Restricted" />
+          <ScalarProperty Name="Complete_SKU" ColumnName="Complete_SKU" />
+          <ScalarProperty Name="SKU_Variation" ColumnName="SKU_Variation" />
+          <ScalarProperty Name="Parent_SKU" ColumnName="Parent_SKU" />
+          <ScalarProperty Name="Choice1" ColumnName="Choice1" />
+          <ScalarProperty Name="Option1" ColumnName="Option1" />
+          <ScalarProperty Name="Choice2" ColumnName="Choice2" />
+          <ScalarProperty Name="Option2" ColumnName="Option2" />
+          <ScalarProperty Name="Choice3" ColumnName="Choice3" />
+          <ScalarProperty Name="Option3" ColumnName="Option3" />
+          <ScalarProperty Name="Choice4" ColumnName="Choice4" />
+          <ScalarProperty Name="Option4" ColumnName="Option4" />
+          <ScalarProperty Name="Choice5" ColumnName="Choice5" />
+          <ScalarProperty Name="Option5" ColumnName="Option5" />
+          <ScalarProperty Name="Choice6" ColumnName="Choice6" />
+          <ScalarProperty Name="Option6" ColumnName="Option6" />
+          <ScalarProperty Name="Choice7" ColumnName="Choice7" />
+          <ScalarProperty Name="Option7" ColumnName="Option7" />
+          <ScalarProperty Name="Choice8" ColumnName="Choice8" />
+          <ScalarProperty Name="Option8" ColumnName="Option8" />
+          <ScalarProperty Name="Choice9" ColumnName="Choice9" />
+          <ScalarProperty Name="Option9" ColumnName="Option9" />
+          <ScalarProperty Name="Choice10" ColumnName="Choice10" />
+          <ScalarProperty Name="Option10" ColumnName="Option10" />
+          <ScalarProperty Name="QTY_Available" ColumnName="QTY_Available" />
+          <ScalarProperty Name="Country_of_Origin_Code" ColumnName="Country_of_Origin_Code" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DatabaseModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_AddUpdateProductRecord" FunctionName="DatabaseModel.Store.sp_AddUpdateProductRecord" />
+    <FunctionImportMapping FunctionImportName="sp_GetActiveProductById" FunctionName="DatabaseModel.Store.sp_GetActiveProductById" />
+    <FunctionImportMapping FunctionImportName="sp_GetActiveProductBySku" FunctionName="DatabaseModel.Store.sp_GetActiveProductBySku" />
+    <FunctionImportMapping FunctionImportName="sp_GetActiveProductList" FunctionName="DatabaseModel.Store.sp_GetActiveProductList" />
+    <FunctionImportMapping FunctionImportName="sp_GetNewProducts" FunctionName="DatabaseModel.Store.sp_GetNewProducts" />
+    <FunctionImportMapping FunctionImportName="sp_GetProductBySearch" FunctionName="DatabaseModel.Store.sp_GetProductBySearch" />
+  </EntityContainerMapping>
+</Mapping>

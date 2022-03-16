@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CommonTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RefreshTime" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsNew" Type="Int32" />
+    <Property Name="ProductImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Product_SKU" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Group" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Type" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Short_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Long_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Level_1_Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Level_2_Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UPC_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MAP_Price" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Kroll_Sell" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MSRP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Weight" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Small_Image_File" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Small_Image_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Manu_Part_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Hazardous" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Restricted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Complete_SKU" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="SKU_Variation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parent_SKU" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Choice1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Choice10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QTY_Available" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Country_of_Origin_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="355" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CommonTables" EntityType="Self.CommonTable" />
+    <EntitySet Name="ProductRecords" EntityType="Self.ProductRecord" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <FunctionImport Name="sp_AddUpdateProductRecord" EntitySet="ProductRecords" ReturnType="Collection(DatabaseModel.ProductRecord)">
+      <Parameter Name="StatementType" Mode="In" Type="Int32" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="IsNew" Mode="In" Type="String" />
+      <Parameter Name="ProductImagePath" Mode="In" Type="String" />
+      <Parameter Name="Product_SKU" Mode="In" Type="String" />
+      <Parameter Name="Product_Group" Mode="In" Type="String" />
+      <Parameter Name="Manufacturer" Mode="In" Type="String" />
+      <Parameter Name="Product_Type" Mode="In" Type="String" />
+      <Parameter Name="Product_Name" Mode="In" Type="String" />
+      <Parameter Name="Short_Description" Mode="In" Type="String" />
+      <Parameter Name="Long_Description" Mode="In" Type="String" />
+      <Parameter Name="Level_1_Category" Mode="In" Type="String" />
+      <Parameter Name="Level_2_Category" Mode="In" Type="String" />
+      <Parameter Name="UPC_Code" Mode="In" Type="String" />
+      <Parameter Name="MAP_Price" Mode="In" Type="String" />
+      <Parameter Name="Kroll_Sell" Mode="In" Type="String" />
+      <Parameter Name="MSRP" Mode="In" Type="String" />
+      <Parameter Name="Product_Weight" Mode="In" Type="String" />
+      <Parameter Name="Small_Image_File" Mode="In" Type="String" />
+      <Parameter Name="Small_Image_Text" Mode="In" Type="String" />
+      <Parameter Name="Manu_Part_Number" Mode="In" Type="String" />
+      <Parameter Name="Hazardous" Mode="In" Type="String" />
+      <Parameter Name="Restricted" Mode="In" Type="String" />
+      <Parameter Name="Complete_SKU" Mode="In" Type="String" />
+      <Parameter Name="SKU_Variation" Mode="In" Type="String" />
+      <Parameter Name="Parent_SKU" Mode="In" Type="String" />
+      <Parameter Name="Choice1" Mode="In" Type="String" />
+      <Parameter Name="Option1" Mode="In" Type="String" />
+      <Parameter Name="Choice2" Mode="In" Type="String" />
+      <Parameter Name="Option2" Mode="In" Type="String" />
+      <Parameter Name="Choice3" Mode="In" Type="String" />
+      <Parameter Name="Option3" Mode="In" Type="String" />
+      <Parameter Name="Choice4" Mode="In" Type="String" />
+      <Parameter Name="Option4" Mode="In" Type="String" />
+      <Parameter Name="Choice5" Mode="In" Type="String" />
+      <Parameter Name="Option5" Mode="In" Type="String" />
+      <Parameter Name="Choice6" Mode="In" Type="String" />
+      <Parameter Name="Option6" Mode="In" Type="String" />
+      <Parameter Name="Choice7" Mode="In" Type="String" />
+      <Parameter Name="Option7" Mode="In" Type="String" />
+      <Parameter Name="Choice8" Mode="In" Type="String" />
+      <Parameter Name="Option8" Mode="In" Type="String" />
+      <Parameter Name="Choice9" Mode="In" Type="String" />
+      <Parameter Name="Option9" Mode="In" Type="String" />
+      <Parameter Name="Choice10" Mode="In" Type="String" />
+      <Parameter Name="Option10" Mode="In" Type="String" />
+      <Parameter Name="Country_of_Origin_Code" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedAt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetActiveProductById" EntitySet="ProductRecords" ReturnType="Collection(DatabaseModel.ProductRecord)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetActiveProductBySku" EntitySet="ProductRecords" ReturnType="Collection(DatabaseModel.ProductRecord)">
+      <Parameter Name="Product_SKU" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetActiveProductList" EntitySet="ProductRecords" ReturnType="Collection(DatabaseModel.ProductRecord)" />
+    <FunctionImport Name="sp_GetNewProducts" EntitySet="ProductRecords" ReturnType="Collection(DatabaseModel.ProductRecord)" />
+    <FunctionImport Name="sp_GetProductBySearch" EntitySet="ProductRecords" ReturnType="Collection(DatabaseModel.ProductRecord)">
+      <Parameter Name="Product_SKU" Mode="In" Type="String" />
+      <Parameter Name="MAP_Price" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_AddUpdateProductRecord_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IsNew" Nullable="true" />
+    <Property Type="String" Name="ProductImagePath" Nullable="true" />
+    <Property Type="String" Name="Product_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Group" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Type" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Short_Description" Nullable="true" />
+    <Property Type="String" Name="Long_Description" Nullable="true" />
+    <Property Type="String" Name="Level_1_Category" Nullable="true" />
+    <Property Type="String" Name="Level_2_Category" Nullable="true" />
+    <Property Type="String" Name="UPC_Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MAP_Price" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Kroll_Sell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MSRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Small_Image_File" Nullable="true" />
+    <Property Type="String" Name="Small_Image_Text" Nullable="true" />
+    <Property Type="String" Name="Manu_Part_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hazardous" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Restricted" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complete_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="SKU_Variation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parent_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Choice1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QTY_Available" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Country_of_Origin_Code" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetActiveProductById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IsNew" Nullable="true" />
+    <Property Type="String" Name="ProductImagePath" Nullable="true" />
+    <Property Type="String" Name="Product_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Group" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Type" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Short_Description" Nullable="true" />
+    <Property Type="String" Name="Long_Description" Nullable="true" />
+    <Property Type="String" Name="Level_1_Category" Nullable="true" />
+    <Property Type="String" Name="Level_2_Category" Nullable="true" />
+    <Property Type="String" Name="UPC_Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MAP_Price" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Kroll_Sell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MSRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Small_Image_File" Nullable="true" />
+    <Property Type="String" Name="Small_Image_Text" Nullable="true" />
+    <Property Type="String" Name="Manu_Part_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hazardous" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Restricted" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complete_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="SKU_Variation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parent_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Choice1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QTY_Available" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Country_of_Origin_Code" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetActiveProductBySku_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IsNew" Nullable="true" />
+    <Property Type="String" Name="ProductImagePath" Nullable="true" />
+    <Property Type="String" Name="Product_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Group" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Type" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Short_Description" Nullable="true" />
+    <Property Type="String" Name="Long_Description" Nullable="true" />
+    <Property Type="String" Name="Level_1_Category" Nullable="true" />
+    <Property Type="String" Name="Level_2_Category" Nullable="true" />
+    <Property Type="String" Name="UPC_Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MAP_Price" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Kroll_Sell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MSRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Small_Image_File" Nullable="true" />
+    <Property Type="String" Name="Small_Image_Text" Nullable="true" />
+    <Property Type="String" Name="Manu_Part_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hazardous" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Restricted" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complete_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="SKU_Variation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parent_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Choice1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QTY_Available" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Country_of_Origin_Code" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetActiveProductList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IsNew" Nullable="true" />
+    <Property Type="String" Name="ProductImagePath" Nullable="true" />
+    <Property Type="String" Name="Product_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Group" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Type" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Short_Description" Nullable="true" />
+    <Property Type="String" Name="Long_Description" Nullable="true" />
+    <Property Type="String" Name="Level_1_Category" Nullable="true" />
+    <Property Type="String" Name="Level_2_Category" Nullable="true" />
+    <Property Type="String" Name="UPC_Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MAP_Price" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Kroll_Sell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MSRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Small_Image_File" Nullable="true" />
+    <Property Type="String" Name="Small_Image_Text" Nullable="true" />
+    <Property Type="String" Name="Manu_Part_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hazardous" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Restricted" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complete_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="SKU_Variation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parent_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Choice1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QTY_Available" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Country_of_Origin_Code" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetNewProducts_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IsNew" Nullable="true" />
+    <Property Type="String" Name="ProductImagePath" Nullable="true" />
+    <Property Type="String" Name="Product_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Group" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Type" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Short_Description" Nullable="true" />
+    <Property Type="String" Name="Long_Description" Nullable="true" />
+    <Property Type="String" Name="Level_1_Category" Nullable="true" />
+    <Property Type="String" Name="Level_2_Category" Nullable="true" />
+    <Property Type="String" Name="UPC_Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MAP_Price" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Kroll_Sell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MSRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Small_Image_File" Nullable="true" />
+    <Property Type="String" Name="Small_Image_Text" Nullable="true" />
+    <Property Type="String" Name="Manu_Part_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hazardous" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Restricted" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complete_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="SKU_Variation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parent_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Choice1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QTY_Available" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Country_of_Origin_Code" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetProductBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IsNew" Nullable="true" />
+    <Property Type="String" Name="ProductImagePath" Nullable="true" />
+    <Property Type="String" Name="Product_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Group" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufacturer" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Type" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Short_Description" Nullable="true" />
+    <Property Type="String" Name="Long_Description" Nullable="true" />
+    <Property Type="String" Name="Level_1_Category" Nullable="true" />
+    <Property Type="String" Name="Level_2_Category" Nullable="true" />
+    <Property Type="String" Name="UPC_Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MAP_Price" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Kroll_Sell" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MSRP" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Weight" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Small_Image_File" Nullable="true" />
+    <Property Type="String" Name="Small_Image_Text" Nullable="true" />
+    <Property Type="String" Name="Manu_Part_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hazardous" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Restricted" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complete_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="SKU_Variation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parent_SKU" Nullable="true" MaxLength="355" />
+    <Property Type="String" Name="Choice1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option5" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option6" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option7" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option8" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option9" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Choice10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Option10" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QTY_Available" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Country_of_Origin_Code" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedAt" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

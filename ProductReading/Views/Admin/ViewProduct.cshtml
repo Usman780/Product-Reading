@@ -1,0 +1,775 @@
+﻿@using ProductReading.Helping_Classes
+@{
+    ViewBag.Title = "View Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .table > tbody > tr > td {
+        padding: 5px !important;
+    }
+
+    .progress {
+        position: relative;
+        width: 95%;
+        border: 1px solid #ddd;
+        padding: 1px;
+    }
+
+    .progress-bar {
+        width: 0px;
+        height: 20px;
+        background-color: #57be65;
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+    
+</style>
+
+
+<div class="modal fade" id="updateModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="text-center text-bold">Update Course</h5>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="@Url.Action("PostUpdateCourse","Admin")" method="post" enctype="multipart/form-data">
+
+                    <center id="updImgDiv">
+
+                    </center>
+
+                    <input type="hidden" name="Id" id="updId" />
+                    <input type="hidden" name="way" value="@ViewBag.Way" />
+
+                    <div class="form-group">
+                        <label class="text-bold">Course Title <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="updCourseTitle" name="CourseTitle" onkeyup="validateCourse(this.value)" placeholder="Enter Course Title Here" required>
+                        <span class="text-danger" id="updCourseErrMsg"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="text-bold">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control" rows="5" id="updCourseDescription" name="CourseDescription" placeholder="Enter Course Description Here" required></textarea>
+                    </div>
+
+
+
+
+
+                    <div class="modal-footer">
+                        <button type="submit" value="submit" class="btn btn-primary" id="updSubBtn">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row m-20">
+    <div class="row">
+        <a class="btn btn-default pull-right" onclick="toggleSearch()" title="Search Records">
+            <i class="icon-search4 text-info" id="searchIcon"></i>
+        </a>
+    </div>
+
+    <div class="row" style="border:2px solid #424ef4; border-radius:5px; color:white;" hidden id="searchDiv">
+        <div class="col-md-12 p-20 bg-indigo-600" style="border-radius:5px;">
+            <div class="row">
+
+                <div class="col-md-3 col-lg-3" style="padding: 20px;padding-top:20px;">
+                    <div class="form-group">
+                        <label><strong>Products:</strong></label>
+                        <div style="background-color:white; color:black; border:1px solid black;">
+
+                            <select class="select" id="searchIsNew">
+                                <option value="-1"> All</option>
+                                <option value="1"> New</option>
+                                <option value="0"> Old</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-lg-3 pt-20">
+                    <div class="form-group">
+                        <label><strong>Product Sku:</strong></label>
+                        <input type="text" placeholder="  Search Product Sku Here" class="form-control" id="searchSku" style="background-color:white">
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-lg-3 pt-20">
+                    <div class="form-group">
+                        <label><strong>Product Type:</strong></label>
+                        <input type="text" placeholder="  Search Product Type Here" class="form-control" id="searchType" style="background-color:white">
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-lg-3 pt-20">
+                    <div class="form-group">
+                        <label><strong>Product Name:</strong></label>
+                        <input type="text" class="form-control" id="searchName" placeholder="  Search Product Name Here" style="background-color:white">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <button onclick="clearSearch()" class="btn btn-danger btn-block" title="Clear Search Records">Clear</button>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    &nbsp;
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <button onclick="searchTable()" class="btn btn-primary btn-block pull-right">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row startClass" id="progressDiv" hidden>
+
+    <div class="col-lg-offset-4 col-lg-3" style="background-color:#f2eeeb; border:1px solid black; border-radius:5px; box-shadow:7px 12px 17px -3px rgba(0, 0, 0, 0.72);">
+
+        <a onclick="clearSearch()">
+            <i class="mt-10 glyphicon glyphicon-refresh spinner pull-right text-info-300" data-popup="tooltip" title="Refresh to view changes"></i>
+        </a>
+        <center>
+            <u><h3>Progress</h3></u>
+        </center>
+        <div>
+            <b>Accepted Rows :</b> <span id="proDivAccept">0</span><br />
+            <b>Rejected Rows :</b> <span class="text-danger" id="proDivRej">0</span>
+        </div>
+    </div>
+</div>
+<br />*@
+
+<div class="row startClass m-10" id="progressBarDiv" style="display:none;">
+    <div class="col-lg-offset-4 col-lg-5" style="background-color:#f2eeeb; border:1px solid black; border-radius:5px; box-shadow:7px 12px 17px -3px rgba(0, 0, 0, 0.72);">
+
+        <a onclick="clearSearch()">
+            <i class="mt-10 glyphicon glyphicon-refresh pull-right text-info-300" data-popup="tooltip" title="Refresh table to view changes"></i>
+        </a>
+        <center>
+            <u><h3 id="progressHeading">Progress</h3></u>
+        </center>
+
+        <div class="progress">
+            <div id="progressBar" class="progress-bar " role="progressbar" style="width:0%;" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <span id="progressText">
+            0%
+            <br />
+            <br />
+            Record 0/0
+            <br />
+            
+        </span>
+    </div>
+</div>
+<br />
+<div class="content p-20 m-10">
+
+    <div class="row">
+        <center><u><h3>Product List</h3></u></center>
+    </div>
+
+    @if (ViewBag.IsRefresh == 1)
+    {
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-2 pull-right btn-block">
+                <a id="refreshBtn" onclick="refreshProduct()" class="btn btn-primary m-5 pull-right" data-popup="tooltip" title="Refresh Product Records">Refresh</a>
+                <i class="icon-spinner spinner icon-3x pull-right" style="display:none;" id="refreshIcon"></i>
+            </div>
+        </div>
+    }
+    else
+    {
+        string title = "Button will be enabled at " + GeneralPurpose.DateTimeNow().AddDays(ProjectVariable.RefresDays);
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-2 pull-right btn-block">
+                <a class="btn bg-primary-300 m-5 pull-right " data-popup="tooltip" title="@title"><strike>Refresh</strike></a>
+            </div>
+        </div>
+    }
+
+    <div class="panel panel-flat" style="overflow:auto">
+        <table class="table datatable-header-basic" id="productTable">
+            <thead class="bg-indigo-600 m-20">
+                <tr>
+                    <th class="text-bold" hidden>...</th>
+                    <th class="text-bold text-center">
+                        Action
+                    </th>
+                    <th class="text-bold text-center">
+                        Image
+                    </th>
+                    <th class="text-bold text-center">
+                        Updated At
+                    </th>
+                    <th class="text-bold text-center">
+                        Vendor
+                    </th>
+                    <th class="text-bold text-center">
+                        Product_SKU
+                    </th>
+                    <th class="text-bold text-center">
+                        Product_Group
+                    </th>
+                    <th class="text-bold text-center">
+                        Manufacturer
+                    </th>
+                    <th class="text-bold text-center">
+                        Product_Type
+                    </th>
+                    <th class="text-bold text-center">
+                        Product_Name
+                    </th>
+                    <th class="text-bold text-center">
+                        Short_Description
+                    </th>
+                    <th class="text-bold text-center">
+                        Long_Description
+                    </th>
+                    <th class="text-bold text-center">
+                        Level_1_Category
+                    </th>
+                    <th class="text-bold text-center">
+                        Level_2_Category
+                    </th>
+                    <th class="text-bold text-center">
+                        UPC_Code
+                    </th>
+                    <th class="text-bold text-center">
+                        MAP_Price
+                    </th>
+                    <th class="text-bold text-center">
+                        Kroll_Sell
+                    </th>
+                    <th class="text-bold text-center">
+                        MSRP
+                    </th>
+                    <th class="text-bold text-center">
+                        Product_Weight
+                    </th>
+                    <th class="text-bold text-center">
+                        Small_Image_File
+                    </th>
+                    <th class="text-bold text-center">
+                        Small_Image_Text
+                    </th>
+                    <th class="text-bold text-center">
+                        Manu_Part_Number
+                    </th>
+                    <th class="text-bold text-center">
+                        Hazardous
+                    </th>
+                    <th class="text-bold text-center">
+                        Restricted
+                    </th>
+                    <th class="text-bold text-center">
+                        Complete_SKU
+                    </th>
+                    <th class="text-bold text-center">
+                        SKU_Variation
+                    </th>
+                    <th class="text-bold text-center">
+                        Parent_SKU
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice1
+                    </th>
+                    <th class="text-bold text-center">
+                        Option1
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice2
+                    </th>
+                    <th class="text-bold text-center">
+                        Option2
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice3
+                    </th>
+                    <th class="text-bold text-center">
+                        Option3
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice4
+                    </th>
+                    <th class="text-bold text-center">
+                        Option4
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice5
+                    </th>
+                    <th class="text-bold text-center">
+                        Option5
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice6
+                    </th>
+                    <th class="text-bold text-center">
+                        Option6
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice7
+                    </th>
+                    <th class="text-bold text-center">
+                        Option7
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice8
+                    </th>
+                    <th class="text-bold text-center">
+                        Option8
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice9
+                    </th>
+                    <th class="text-bold text-center">
+                        Option9
+                    </th>
+                    <th class="text-bold text-center">
+                        Choice10
+                    </th>
+                    <th class="text-bold text-center">
+                        Stockable
+                    </th>
+                    <th class="text-bold text-center">
+                        QTY_Available
+                    </th>
+                    <th class="text-bold text-center">
+                        Country_of_Origin_Code
+                    </th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+@if(ViewBag.CommonTable == null)
+{
+    <script>
+
+        GetProductCatalog();
+
+        function GetProductCatalog() {
+            $('#refreshBtn').hide();
+
+            $.ajax({
+                type: 'POST',
+                url: "../Admin/GetProductCatalog",
+                dataType: "json",
+                timeout: 0,
+                success: function (response) {
+                    if (response == 1) {
+                        location.reload();
+                    }
+                    else {
+                        alert("Somethings' wrong");
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    alert("Somethings' wrong");
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}
+
+<script>
+    loadTable();
+
+    function loadTable(isNew, sku, type, name)
+    {
+        $('#productTable').DataTable(
+        {
+            fixedHeader: {
+                headerOffset: 0
+            },
+            "ajax":
+            {
+                "url": '@Url.Action("GetProductDataTableList", "Ajax")',
+                "type": "POST",
+                "datatype": "json",
+                "data": { isNew:isNew, productSku: sku, productType: type, productName: name }
+            },
+            'columns':
+            [
+                { "data": "hidden", "name": "0" },
+                { "data": "Action", "name": "0" },
+                { "data": "ProductImagePath", "name": "0" },
+                { "data": "CreatedAt", "name": "CreatedAt" },
+                { "data": "Vendor", "name": "0" },
+                { "data": "Product_SKU", "name": "Product_SKU" },
+                { "data": "Product_Group", "name": "Product_Group" },
+                { "data": "Manufacturer", "name": "Manufacturer" },
+                { "data": "Product_Type", "name": "Product_Type" },
+                { "data": "Product_Name", "name": "Product_Name" },
+                { "data": "Short_Description", "name": "Short_Description" },
+                { "data": "Long_Description", "name": "Long_Description" },
+                { "data": "Level_1_Category", "name": "Level_1_Category" },
+                { "data": "Level_2_Category", "name": "Level_2_Category" },
+                { "data": "UPC_Code", "name": "UPC_Code" },
+                { "data": "MAP_Price", "name": "MAP_Price" },
+                { "data": "Kroll_Sell", "name": "Kroll_Sell" },
+                { "data": "MSRP", "name": "MSRP" },
+                { "data": "Product_Weight", "name": "Product_Weight" },
+                { "data": "Small_Image_File", "name": "Small_Image_File" },
+                { "data": "Small_Image_Text", "name": "Small_Image_Text" },
+                { "data": "Manu_Part_Number", "name": "Manu_Part_Number" },
+                { "data": "Hazardous", "name": "Hazardous" },
+                { "data": "Restricted", "name": "Restricted" },
+                { "data": "Complete_SKU", "name": "Complete_SKU" },
+                { "data": "SKU_Variation", "name": "SKU_Variation" },
+                { "data": "Parent_SKU", "name": "Parent_SKU" },
+                { "data": "Choice1", "name": "Choice1" },
+                { "data": "Option1", "name": "Option1" },
+                { "data": "Choice2", "name": "Choice2" },
+                { "data": "Option2", "name": "Option2" },
+                { "data": "Choice3", "name": "Choice3" },
+                { "data": "Option3", "name": "Option3" },
+                { "data": "Choice4", "name": "Choice4" },
+                { "data": "Option4", "name": "Option4" },
+                { "data": "Choice5", "name": "Choice5" },
+                { "data": "Option5", "name": "Option5" },
+                { "data": "Choice6", "name": "Choice6" },
+                { "data": "Option6", "name": "Option6" },
+                { "data": "Choice7", "name": "Choice7" },
+                { "data": "Option7", "name": "Option7" },
+                { "data": "Choice8", "name": "Choice8" },
+                { "data": "Option8", "name": "Option8" },
+                { "data": "Choice9", "name": "Choice9" },
+                { "data": "Option9", "name": "Option9" },
+                { "data": "Choice10", "name": "Option10" },
+                { "data": "Option10", "name": "Option10" },
+                { "data": "QTY_Available", "name": "QTY_Available" },
+                { "data": "Country_of_Origin_Code", "name": "Country_of_Origin_Code" },
+            ],
+            'columnDefs':
+            [
+                {
+                    "targets": 0,
+                    "visible": false,
+                    "searchable": false,
+                    "render": function (data, type, full, meta) {
+                        return null;
+                    }
+                },
+                {
+                    "targets": 1,
+                    'className': '',
+                    'sortable': false,
+                    "render": function (data, type, full, meta)
+                    {
+                        if (full.ProductImagePath == null)
+                        {
+                            return '<ul class="icons-list"> ' +
+                                '<li class="dropdown" >' +
+                                '			<a href="#" class="dropdown-toggle" data-toggle="dropdown">' +
+                                '				<i class="icon-menu9"></i>' +
+                                '			</a>' +
+                                '			<ul class="dropdown-menu dropdown-menu-left"  style="padding-left:5px !important; min-width: 100px !important;">' +
+                                '				<li>' +
+                                '                   <span><a class="btn btn-sm bg-info icon-image2" href="../Admin/RefreshProductImage?id='+ full.Id + '" title="Refresh Product Image"></a></span>' +
+                                //'                   <button class="btn btn-sm bg-info icon-pencil" onclick="updateFunction(' + full.Id + ')" title="Edit"></button>' +
+                                '                   <button class="btn btn-sm bg-danger icon-bin" onclick="deleteFunction(' + full.Id + ')" title="Delete"></button>' +
+                                '               </li>' +
+                                '			</ul>' +
+                                '		</li >' +
+                                '	</ul >';
+                        }
+                        else {
+                            return '<ul class="icons-list"> ' +
+                                '<li class="dropdown" >' +
+                                '			<a href="#" class="dropdown-toggle" data-toggle="dropdown">' +
+                                '				<i class="icon-menu9"></i>' +
+                                '			</a>' +
+                                '			<ul class="dropdown-menu dropdown-menu-left"  style="padding-left:5px !important; min-width: 50px !important;">' +
+                                '				<li>' +
+                                '                   <button class="btn btn-sm bg-danger icon-bin" onclick="deleteFunction(' + full.Id + ')" title="Delete"></button>' +
+                                '               </li>' +
+                                '			</ul>' +
+                                '		</li >' +
+                                '	</ul >';
+                        }
+                    }
+                },
+                {
+                    "targets": 2,
+                    'className': '',
+                    'sortable': false,
+                    "render": function (data, type, full, meta)
+                    {
+                        if (full.ProductImagePath == null) {
+                            return '<a href="../Admin/RefreshProductImage?id=' + full.Id + '" title="Refresh Image?"><img src="../Content/assets/images/cover.jpg" width="100" height="100"/></a>';
+                        }
+                        else {
+                            return '<a href="' + full.ProductImagePath + '" target="_blank"><img src="' + full.ProductImagePath + '" width="100" height="100"/></a>';
+                        }
+                    }
+                },
+                {
+                    "targets": 3,
+                    'className': '',
+                    "render": function (data, type, full, meta)
+                    {
+                        if (full.IsNew == 1)
+                        {
+                            return '<span>'+full.CreatedAt+'</span><br><span class="label label-success label-rounded">New</span>';
+                        }
+                        else {
+                            return full.CreatedAt;
+                        }
+                    }
+                },
+                {
+                    "targets": 10,
+                    'className': '',
+                    "render": function (data, type, full, meta)
+                    {
+                        return '<textarea readonly rows="4" style="resize:verticle; border:none;">' + full.Short_Description + '</textarea>';
+                    }
+                },
+                {
+                    "targets": 11,
+                    'className': '',
+                    "render": function (data, type, full, meta) {
+                        return '<textarea readonly rows="4" style="resize:verticle; border:none;">' + full.Long_Description + '</textarea>';
+                    }
+                },
+            ],
+            "serverSide": "true",
+            "processing": "true",
+            "language":
+            {
+                "processing": "<i class='icon-spinner spinner icon-2x'></i>",
+                "search": "<span>Search :</span> _INPUT_",
+                "searchPlaceholder": "Filter Products",
+                "lengthMenu": "<span>Show :</span> _MENU_",
+                "paginate": { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' }
+            }
+
+        });
+    }
+
+    function searchTable() {
+        var isNew = $('#searchIsNew').val();
+        var sku = $('#searchSku').val();
+        var type = $('#searchType').val();
+        var name = $('#searchName').val();
+
+        $('#productTable').DataTable().clear();
+        $('#productTable').DataTable().destroy();
+
+        loadTable(isNew, sku, type, name);
+    }
+
+    function toggleSearch() {
+        if ($('#searchIcon').hasClass('icon-search4')) {
+            $('#searchIcon').removeClass('icon-search4');
+            $('#searchIcon').removeClass('text-info');
+            $('#searchIcon').addClass('icon-cross2');
+            $('#searchIcon').addClass('text-danger');
+
+            $('#searchDiv').toggle('show');
+        }
+        else {
+            $('#searchIcon').addClass('icon-search4');
+            $('#searchIcon').addClass('text-info');
+            $('#searchIcon').removeClass('icon-cross2');
+            $('#searchIcon').removeClass('text-danger');
+
+            $('#searchDiv').toggle('hide');
+        }
+
+    }
+
+    function clearSearch() {
+        $('#productTable').DataTable().clear();
+        $('#productTable').DataTable().destroy();
+
+        $('#searchIsNew').val("-1").change();
+        $('#searchSku').val("");
+        $('#searchType').val("");
+        $('#searchName').val("");
+
+        loadTable();
+    }
+
+    function refreshProduct()
+    {
+        $('#refreshBtn').hide();
+        $('#refreshIcon').show();
+
+        $.ajax({
+            type: 'POST',
+            url: "../Admin/RefreshProduct",
+            dataType: "json",
+            timeout: 0,
+            success: function (response)
+            {
+                if (response == 1) {
+                    location.reload();
+                }
+                else {
+                    alert("Somethings' wrong");
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert("Somethings' wrong");
+                location.reload();
+            }
+        });
+    }
+
+    function deleteFunction(id)
+    {
+        $('#confirmModalHeading').text('Warning!');
+        $('#confirmModalHeader').removeClass('bg-success');
+        $('#confirmModalHeader').addClass('bg-danger');
+        $('#confirmModalText').empty();
+        $('#confirmModalText').append('Do you really want to delete this product?<br />' +
+            'This product is going to permanently delete from our system.<br />' +
+            'The action cannot be undone.');
+
+        var a = document.getElementById('confirmModalId');
+        a.href = "../Admin/DeleteProduct?id=" + id + "&way=@ViewBag.Way";
+
+        $('#confirmModal').modal('show');
+    }
+</script>
+
+<script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script type="text/javascript">
+    var flag = 0;
+
+    var progress = $.connection.progressHub; //get connection with class named "ProgressHub" in DataHub folder (ProgressHub.cs)
+    $.connection.hub.start().done();
+
+    progress.client.broadcastProgress = function (currentRow, totalRows, condition)
+    {
+        $('#refreshIcon').hide();
+
+        if (condition == 1) {
+            alert("Record updated successfully");
+            location.reload();
+        }
+        else {
+
+            if ($('#progressBarDiv').hasClass('startClass'))
+            {
+                $('#refreshBtn').hide();
+                $('#progressBarDiv').removeClass('startClass');
+                $('#progressBarDiv').show();
+            }
+
+            var percentage = parseInt(currentRow) / parseInt(totalRows);
+            percentage = parseInt(percentage * 100);
+
+            if (percentage != flag) {
+                var barBgColor = 'red';
+                if (percentage >= 33 && percentage <= 49) {
+                    barBgColor = 'orange';
+                }
+                else if (percentage >= 50 && percentage <= 79) {
+                    barBgColor = 'dodgerblue';
+                }
+                else if (percentage >= 80) {
+                    barBgColor = 'green';
+                }
+
+                $('#progressBar').css({ 'width': parseInt(percentage) + '%', 'background-color': barBgColor });
+
+                flag = percentage;
+            }
+
+            $('#progressText').empty().append(parseInt(percentage) + '%' +
+                '<br />' +
+                '<br />' +
+                'Record ' + currentRow + '/' + totalRows +
+                '<br />' );
+        }
+
+
+        
+
+    };
+
+    progress.client.broadcastInventoryProgress = function (currentRow, totalRows, condition)
+    {
+        $('#refreshIcon').hide();
+
+        $('#progressHeading').text("Updating Inventory");
+
+        if ($('#progressBarDiv').hasClass('startClass')) {
+            $('#refreshBtn').hide();
+            $('#progressBarDiv').removeClass('startClass');
+            $('#progressBarDiv').show();
+        }
+
+        var percentage = parseInt(currentRow) / parseInt(totalRows);
+        percentage = parseInt(percentage * 100);
+
+        if (percentage != flag) {
+            var barBgColor = 'red';
+            if (percentage >= 33 && percentage <= 49) {
+                barBgColor = 'orange';
+            }
+            else if (percentage >= 50 && percentage <= 79) {
+                barBgColor = 'dodgerblue';
+            }
+            else if (percentage >= 80) {
+                barBgColor = 'green';
+            }
+
+            $('#progressBar').css({ 'width': parseInt(percentage) + '%', 'background-color': barBgColor });
+
+            flag = percentage;
+        }
+
+        $('#progressText').empty().append(parseInt(percentage) + '%' +
+            '<br />' +
+            '<br />' +
+            'Record ' + currentRow + '/' + totalRows +
+            '<br />');
+
+    };
+
+</script>
+
+<script>
+    //Used to handle Sidebar links Activeness
+    $('#adminProduct').addClass('active');
+</script>
+

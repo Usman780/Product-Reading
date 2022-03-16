@@ -1,0 +1,194 @@
+E:\ProductReading\ProductReading\bin\ProductReading.dll.config
+E:\ProductReading\ProductReading\bin\ProductReading.dll
+E:\ProductReading\ProductReading\bin\ProductReading.pdb
+E:\ProductReading\ProductReading\bin\roslyn\csc.exe
+E:\ProductReading\ProductReading\bin\roslyn\csc.exe.config
+E:\ProductReading\ProductReading\bin\roslyn\csc.rsp
+E:\ProductReading\ProductReading\bin\roslyn\csi.exe
+E:\ProductReading\ProductReading\bin\roslyn\csi.exe.config
+E:\ProductReading\ProductReading\bin\roslyn\csi.rsp
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.Managed.Core.targets
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ProductReading\ProductReading\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.AppContext.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Collections.Immutable.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Console.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Globalization.Calendars.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.IO.Compression.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.IO.FileSystem.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Net.Http.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Net.Sockets.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Reflection.Metadata.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.ValueTuple.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Xml.XmlDocument.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Xml.XPath.dll
+E:\ProductReading\ProductReading\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\ProductReading\ProductReading\bin\roslyn\vbc.exe
+E:\ProductReading\ProductReading\bin\roslyn\vbc.exe.config
+E:\ProductReading\ProductReading\bin\roslyn\vbc.rsp
+E:\ProductReading\ProductReading\bin\roslyn\VBCSCompiler.exe
+E:\ProductReading\ProductReading\bin\roslyn\VBCSCompiler.exe.config
+E:\ProductReading\ProductReading\bin\EntityFramework.dll
+E:\ProductReading\ProductReading\bin\EntityFramework.SqlServer.dll
+E:\ProductReading\ProductReading\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.dll
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Security.Cookies.dll
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Security.dll
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Security.OAuth.dll
+E:\ProductReading\ProductReading\bin\Microsoft.Web.Infrastructure.dll
+E:\ProductReading\ProductReading\bin\Newtonsoft.Json.dll
+E:\ProductReading\ProductReading\bin\Owin.dll
+E:\ProductReading\ProductReading\bin\RestSharp.dll
+E:\ProductReading\ProductReading\bin\System.Web.Helpers.dll
+E:\ProductReading\ProductReading\bin\System.Web.Mvc.dll
+E:\ProductReading\ProductReading\bin\System.Web.Razor.dll
+E:\ProductReading\ProductReading\bin\System.Web.Webpages.Deployment.dll
+E:\ProductReading\ProductReading\bin\System.Web.Webpages.dll
+E:\ProductReading\ProductReading\bin\System.Web.Webpages.Razor.dll
+E:\ProductReading\ProductReading\bin\EntityFramework.xml
+E:\ProductReading\ProductReading\bin\EntityFramework.SqlServer.xml
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.xml
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Security.xml
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Security.Cookies.xml
+E:\ProductReading\ProductReading\bin\Microsoft.Owin.Security.OAuth.xml
+E:\ProductReading\ProductReading\bin\Newtonsoft.Json.xml
+E:\ProductReading\ProductReading\bin\RestSharp.xml
+E:\ProductReading\ProductReading\bin\System.Web.Razor.xml
+E:\ProductReading\ProductReading\bin\System.Web.Webpages.xml
+E:\ProductReading\ProductReading\bin\System.Web.Webpages.Deployment.xml
+E:\ProductReading\ProductReading\bin\System.Web.Webpages.Razor.xml
+E:\ProductReading\ProductReading\bin\System.Web.Helpers.xml
+E:\ProductReading\ProductReading\bin\System.Web.Mvc.xml
+E:\ProductReading\ProductReading\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ProductReading\ProductReading\obj\Release\ProductReading.csproj.CoreCompileInputs.cache
+E:\ProductReading\ProductReading\obj\Release\ProductReading.csproj.CopyComplete
+E:\ProductReading\ProductReading\obj\Release\ProductReading.dll
+E:\ProductReading\ProductReading\obj\Release\ProductReading.pdb
+E:\ProductReading\ProductReading\obj\Release\ProductReading.csprojAssemblyReference.cache
+E:\ProductReading\ProductReading\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\ProductReading\ProductReading\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\ProductReading\ProductReading\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\ProductReading\ProductReading\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\ProductReading\ProductReading\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\ProductReading\ProductReading\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Product Reading\ProductReading\bin\ProductReading.dll.config
+E:\Product Reading\ProductReading\bin\ProductReading.dll
+E:\Product Reading\ProductReading\bin\ProductReading.pdb
+E:\Product Reading\ProductReading\bin\roslyn\csc.exe
+E:\Product Reading\ProductReading\bin\roslyn\csc.exe.config
+E:\Product Reading\ProductReading\bin\roslyn\csc.rsp
+E:\Product Reading\ProductReading\bin\roslyn\csi.exe
+E:\Product Reading\ProductReading\bin\roslyn\csi.exe.config
+E:\Product Reading\ProductReading\bin\roslyn\csi.rsp
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Product Reading\ProductReading\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.AppContext.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Collections.Immutable.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Console.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Globalization.Calendars.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.IO.Compression.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.IO.FileSystem.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Net.Http.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Net.Sockets.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Reflection.Metadata.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.ValueTuple.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Xml.XPath.dll
+E:\Product Reading\ProductReading\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Product Reading\ProductReading\bin\roslyn\vbc.exe
+E:\Product Reading\ProductReading\bin\roslyn\vbc.exe.config
+E:\Product Reading\ProductReading\bin\roslyn\vbc.rsp
+E:\Product Reading\ProductReading\bin\roslyn\VBCSCompiler.exe
+E:\Product Reading\ProductReading\bin\roslyn\VBCSCompiler.exe.config
+E:\Product Reading\ProductReading\bin\EntityFramework.dll
+E:\Product Reading\ProductReading\bin\EntityFramework.SqlServer.dll
+E:\Product Reading\ProductReading\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Product Reading\ProductReading\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Product Reading\ProductReading\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.dll
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Security.dll
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Product Reading\ProductReading\bin\Microsoft.Web.Infrastructure.dll
+E:\Product Reading\ProductReading\bin\Newtonsoft.Json.dll
+E:\Product Reading\ProductReading\bin\Owin.dll
+E:\Product Reading\ProductReading\bin\RestSharp.dll
+E:\Product Reading\ProductReading\bin\System.Web.Helpers.dll
+E:\Product Reading\ProductReading\bin\System.Web.Mvc.dll
+E:\Product Reading\ProductReading\bin\System.Web.Razor.dll
+E:\Product Reading\ProductReading\bin\System.Web.Webpages.Deployment.dll
+E:\Product Reading\ProductReading\bin\System.Web.Webpages.dll
+E:\Product Reading\ProductReading\bin\System.Web.Webpages.Razor.dll
+E:\Product Reading\ProductReading\bin\EntityFramework.xml
+E:\Product Reading\ProductReading\bin\EntityFramework.SqlServer.xml
+E:\Product Reading\ProductReading\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Product Reading\ProductReading\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Product Reading\ProductReading\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Product Reading\ProductReading\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.xml
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Security.xml
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Product Reading\ProductReading\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Product Reading\ProductReading\bin\Newtonsoft.Json.xml
+E:\Product Reading\ProductReading\bin\RestSharp.xml
+E:\Product Reading\ProductReading\bin\System.Web.Razor.xml
+E:\Product Reading\ProductReading\bin\System.Web.Webpages.xml
+E:\Product Reading\ProductReading\bin\System.Web.Webpages.Deployment.xml
+E:\Product Reading\ProductReading\bin\System.Web.Webpages.Razor.xml
+E:\Product Reading\ProductReading\bin\System.Web.Helpers.xml
+E:\Product Reading\ProductReading\bin\System.Web.Mvc.xml
+E:\Product Reading\ProductReading\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Product Reading\ProductReading\obj\Release\ProductReading.csprojAssemblyReference.cache
+E:\Product Reading\ProductReading\obj\Release\ProductReading.csproj.CoreCompileInputs.cache
+E:\Product Reading\ProductReading\obj\Release\ProductReading.csproj.CopyComplete
+E:\Product Reading\ProductReading\obj\Release\ProductReading.dll
+E:\Product Reading\ProductReading\obj\Release\ProductReading.pdb

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "UploadFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UploadFile</h2>
+
+<form action="@Url.Action("PostUploadFile","Admin")" method="post" enctype="multipart/form-data">
+
+    Zip File
+    <input type="file" name="postedFile" required accept=".zip" />
+
+    <br />
+
+    <input type="submit" value="Upload" />
+</form>

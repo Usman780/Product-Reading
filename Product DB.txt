@@ -1,0 +1,86 @@
+CREATE TABLE [dbo].[User] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [Name]      NVARCHAR (355) NULL,
+    [Contact]   NVARCHAR (255) NULL,
+    [Email]     NVARCHAR (355) NULL,
+    [Password]  NVARCHAR (MAX) NULL,
+    [Role]      INT            NULL,
+    [IsActive]  INT            NULL,
+    [CreatedAt] DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+------------------------------------------
+
+
+CREATE TABLE [dbo].[ProductRecord] (
+    [Id]                     INT            IDENTITY (1, 1) NOT NULL,
+    [IsNew]                  INT            NULL,
+    [ProductImagePath]       NVARCHAR (MAX) NULL,
+    [Product_SKU]            NVARCHAR (355) NULL,
+    [Product_Group]          NVARCHAR (100) NULL,
+    [Manufacturer]           NVARCHAR (355) NULL,
+    [Product_Type]           NVARCHAR (355) NULL,
+    [Product_Name]           NVARCHAR (500) NULL,
+    [Short_Description]      NVARCHAR (MAX) NULL,
+    [Long_Description]       NVARCHAR (MAX) NULL,
+    [Level_1_Category]       NVARCHAR (MAX) NULL,
+    [Level_2_Category]       NVARCHAR (MAX) NULL,
+    [UPC_Code]               NVARCHAR (100) NULL,
+    [MAP_Price]              NVARCHAR (100) NULL,
+    [Kroll_Sell]             NVARCHAR (100) NULL,
+    [MSRP]                   NVARCHAR (100) NULL,
+    [Product_Weight]         NVARCHAR (100) NULL,
+    [Small_Image_File]       NVARCHAR (MAX) NULL,
+    [Small_Image_Text]       NVARCHAR (MAX) NULL,
+    [Manu_Part_Number]       NVARCHAR (100) NULL,
+    [Hazardous]              NVARCHAR (50)  NULL,
+    [Restricted]             NVARCHAR (50)  NULL,
+    [Complete_SKU]           NVARCHAR (355) NULL,
+    [SKU_Variation]          NVARCHAR (50)  NULL,
+    [Parent_SKU]             NVARCHAR (355) NULL,
+    [Choice1]                NVARCHAR (255) NULL,
+    [Option1]                NVARCHAR (255) NULL,
+    [Choice2]                NVARCHAR (255) NULL,
+    [Option2]                NVARCHAR (255) NULL,
+    [Choice3]                NVARCHAR (255) NULL,
+    [Option3]                NVARCHAR (255) NULL,
+    [Choice4]                NVARCHAR (255) NULL,
+    [Option4]                NVARCHAR (255) NULL,
+    [Choice5]                NVARCHAR (255) NULL,
+    [Option5]                NVARCHAR (255) NULL,
+    [Choice6]                NVARCHAR (255) NULL,
+    [Option6]                NVARCHAR (255) NULL,
+    [Choice7]                NVARCHAR (255) NULL,
+    [Option7]                NVARCHAR (255) NULL,
+    [Choice8]                NVARCHAR (255) NULL,
+    [Option8]                NVARCHAR (255) NULL,
+    [Choice9]                NVARCHAR (255) NULL,
+    [Option9]                NVARCHAR (255) NULL,
+    [Choice10]               NVARCHAR (255) NULL,
+    [Option10]               NVARCHAR (255) NULL,
+    [QTY_Available]          NVARCHAR (100) NULL,
+    [Country_of_Origin_Code] NVARCHAR (100) NULL,
+    [IsActive]               INT            NULL,
+    [CreatedAt]              DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+------------------------------------------------------
+
+CREATE TABLE [dbo].[CommonTable] (
+    [Id]          INT      IDENTITY (1, 1) NOT NULL,
+    [RefreshTime] DATETIME NULL,
+    [IsActive]    INT      NULL,
+    [CreatedAt]   DATETIME NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+
+_____________________________________________
